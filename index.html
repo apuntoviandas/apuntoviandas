@@ -152,6 +152,14 @@
 .vianda-contenido.abierto {
   display: block;
 }
+
+    .categoria {
+  font-size: 16px;
+  margin: 30px 0 12px;
+  font-weight: 600;
+  color: var(--texto);
+}
+    
   </style>
 </head>
 
@@ -169,333 +177,151 @@
   <h2>🍽️ Menú</h2>
   <div id="menu">
 
-  <!-- POLLO AL HORNO -->
-  <div class="tarjeta vianda" data-precio="0">
-    <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Pollo al horno</button>
-    <div class="vianda-contenido">
-      <label>Guarnición</label>
-      <select class="subopcion">
-        <option>Papas y zanahorias</option>
-        <option>Puré de papa</option>
-        <option>Papas fritas</option>
-      </select>
+<h3 class="categoria">🍗 Carnes y Pollo</h3>
 
-      <label>Cantidad</label>
-      <input
-        type="number"
-        class="cantidad"
-        min="0"
-        value="0"
-        onchange="calcularTotal()">
- 
-      <label>Observaciones</label>
-      <textarea class="obs-vianda"></textarea>
-    </div>
-  </div>
-
-  <!-- POLLO GRILLADO -->
-  <div class="tarjeta vianda" data-precio="0">
-    <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Pollo grillado con arroz primavera</button>
-    <div class="vianda-contenido">
-      <label>Cantidad</label>
-      <input
-        type="number"
-        class="cantidad"
-        min="0"
-        value="0"
-        onchange="calcularTotal()">
-
-      <label>Observaciones</label>
-      <textarea class="obs-vianda"></textarea>
-    </div>
-  </div>
-
-  <!-- POLLO A LA PLANCHA -->
-  <div class="tarjeta vianda" data-precio="0">
-    <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Pollo a la plancha</button>
-    <div class="vianda-contenido">
-      <label>Guarnición</label>
-      <select class="subopcion">
-        <option>Puré de papa</option>
-        <option>Puré de calabaza</option>
-        <option>Papas fritas</option>
-      </select>
-
-      <label>Cantidad</label>
-      <input
-        type="number"
-        class="cantidad"
-        min="0"
-        value="0"
-        onchange="calcularTotal()">
-
-      <label>Observaciones</label>
-      <textarea class="obs-vianda"></textarea>
-    </div>
-  </div>
-
-  <!-- CARNE AL HORNO -->
-  <div class="tarjeta vianda" data-precio="0">
-    <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Carne al horno</button>
-    <div class="vianda-contenido">
-      <label>Guarnición</label>
-      <select class="subopcion">
-        <option>Puré de papa</option>
-        <option>Puré de calabaza</option>
-        <option>Papas fritas</option>
-      </select>
-
-      <label>Cantidad</label>
-      <input
-        type="number"
-        class="cantidad"
-        min="0"
-        value="0"
-        onchange="calcularTotal()">
-
-      <label>Observaciones</label>
-      <textarea class="obs-vianda"></textarea>
-    </div>
-  </div>
-
-  <!-- ALBÓNDIGAS -->
-  <div class="tarjeta vianda" data-precio="0">
-    <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Albóndigas</button>
-    <div class="vianda-contenido">
-      <label>Guarnición</label>
-      <select class="subopcion">
-        <option>Arroz y vegetales</option>
-        <option>Puré de papas</option>
-      </select>
-
-      <label>Cantidad</label>
-      <input
-        type="number"
-        class="cantidad"
-        min="0"
-        value="0"
-        onchange="calcularTotal()">
-
-      <label>Observaciones</label>
-      <textarea class="obs-vianda"></textarea>
-    </div>
-  </div>
-
-  <!-- MERLUZA MOSTAZA -->
-  <div class="tarjeta vianda" data-precio="0">
-    <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Merluza a la mostaza al horno con verduras</button>
-    <div class="vianda-contenido">
-      <label>Cantidad</label>
-      <input
-        type="number"
-        class="cantidad"
-        min="0"
-        value="0"
-        onchange="calcularTotal()">
-
-      <label>Observaciones</label>
-      <textarea class="obs-vianda"></textarea>
-    </div>
-  </div>
-
-  <!-- FILET LIMÓN -->
-  <div class="tarjeta vianda" data-precio="0">
-    <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Filet de merluza al limón con puré mixto</button>
-    <div class="vianda-contenido">
-      <label>Cantidad</label>
-      <input
-        type="number"
-        class="cantidad"
-        min="0"
-        value="0"
-        onchange="calcularTotal()">
-
-      <label>Observaciones</label>
-      <textarea class="obs-vianda"></textarea>
-    </div>
-  </div>
-
-  <!-- PASTEL -->
-  <div class="tarjeta vianda" data-precio="0">
-    <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Pastel de papa</button>
-    <div class="vianda-contenido">
-      <label>Cantidad</label>
-      <input
-        type="number"
-        class="cantidad"
-        min="0"
-        value="0"
-        onchange="calcularTotal()">
-
-      <label>Observaciones</label>
-      <textarea class="obs-vianda"></textarea>
-    </div>
-  </div>
-
-  <!-- TARTA INDIVIDUAL ZAPALLITOS -->
-  <div class="tarjeta vianda" data-precio="0">
-    <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Tarta individual de zapallitos y cebolla</button>
-    <div class="vianda-contenido">
-      <label>Cantidad</label>
-      <input
-        type="number"
-        class="cantidad"
-        min="0"
-        value="0"
-        onchange="calcularTotal()">
-
-      <label>Observaciones</label>
-      <textarea class="obs-vianda"></textarea>
-    </div>
-  </div>
-
-  <!-- TARTA INDIVIDUAL ESPINACA -->
-  <div class="tarjeta vianda veggie" data-precio="0">
-    <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Tarta individual de espinaca y choclo</button>
-    <div class="vianda-contenido">
-      <label>Ricotta</label>
-      <select class="subopcion">
-        <option>Con ricotta</option>
-        <option>Sin ricotta</option>
-      </select>
-
-      <label>Cantidad</label>
-      <input
-        type="number"
-        class="cantidad"
-        min="0"
-        value="0"
-        onchange="calcularTotal()">
-
-      <label>Observaciones</label>
-      <textarea class="obs-vianda"></textarea>
-    </div>
-  </div>
-
-  <!-- TARTA INDIVIDUAL JAMÓN Y QUESO -->
-  <div class="tarjeta vianda" data-precio="0">
-    <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Tarta individual de jamón y queso</button>
-    <div class="vianda-contenido">
-      <label>Cantidad</label>
-      <input
-        type="number"
-        class="cantidad"
-        min="0"
-        value="0"
-        onchange="calcularTotal()">
-
-      <label>Observaciones</label>
-      <textarea class="obs-vianda"></textarea>
-    </div>
-  </div>
-
-  <!-- TARTA INDIVIDUAL POLLO -->
-  <div class="tarjeta vianda" data-precio="0">
-    <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Tarta individual de pollo</button>
-    <div class="vianda-contenido">
-      <label>Cantidad</label>
-      <input
-        type="number"
-        class="cantidad"
-        min="0"
-        value="0"
-        onchange="calcularTotal()">
-
-      <label>Observaciones</label>
-      <textarea class="obs-vianda"></textarea>
-    </div>
-  </div>
-
-  <!-- LENTEJAS -->
-  <div class="tarjeta vianda veggie" data-precio="0">
-    <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Hamburguesas de lentejas con arroz y verduras</button>
-    <div class="vianda-contenido">
-      <label>Cantidad</label>
-      <input
-        type="number"
-        class="cantidad"
-        min="0"
-        value="0"
-        onchange="calcularTotal()">
-
-      <label>Observaciones</label>
-      <textarea class="obs-vianda"></textarea>
-    </div>
-  </div>
-
-  <div class="tarjeta vianda veggie" data-precio="0">
-    <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Guiso de lentejas</button>
-    <div class="vianda-contenido">
-      <label>Cantidad</label>
-      <input
-        type="number"
-        class="cantidad"
-        min="0"
-        value="0"
-        onchange="calcularTotal()">
-
-      <label>Observaciones</label>
-      <textarea class="obs-vianda"></textarea>
-    </div>
-  </div>
-
-  <!-- MILANESA -->
-<div class="tarjeta vianda" data-precio="0">
-  <button type="button" class="vianda-btn" onclick="toggleMenu(this)">
-    Milanesa a la napolitana
-  </button>
+<div class="tarjeta vianda">
+  <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Pollo al horno</button>
   <div class="vianda-contenido">
+    <label>Guarnición</label>
+    <select class="subopcion">
+      <option>Papas y zanahorias</option>
+      <option>Puré de papa</option>
+      <option>Papas fritas</option>
+    </select>
+    <label>Cantidad</label>
+    <input type="number" class="cantidad" min="0" value="0" onchange="calcularTotal()">
+    <label>Observaciones</label>
+    <textarea class="obs-vianda"></textarea>
+  </div>
+</div>
 
+<div class="tarjeta vianda">
+  <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Pollo grillado con arroz primavera</button>
+  <div class="vianda-contenido">
+    <label>Cantidad</label>
+    <input type="number" class="cantidad" min="0" value="0" onchange="calcularTotal()">
+    <label>Observaciones</label>
+    <textarea class="obs-vianda"></textarea>
+  </div>
+</div>
+
+<div class="tarjeta vianda">
+  <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Pollo a la plancha</button>
+  <div class="vianda-contenido">
+    <label>Guarnición</label>
+    <select class="subopcion">
+      <option>Puré de papa</option>
+      <option>Puré de calabaza</option>
+      <option>Papas fritas</option>
+    </select>
+    <label>Cantidad</label>
+    <input type="number" class="cantidad" min="0" value="0" onchange="calcularTotal()">
+    <label>Observaciones</label>
+    <textarea class="obs-vianda"></textarea>
+  </div>
+</div>
+
+<div class="tarjeta vianda">
+  <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Carne al horno</button>
+  <div class="vianda-contenido">
+    <label>Guarnición</label>
+    <select class="subopcion">
+      <option>Puré de papa</option>
+      <option>Puré de calabaza</option>
+      <option>Papas fritas</option>
+    </select>
+    <label>Cantidad</label>
+    <input type="number" class="cantidad" min="0" value="0" onchange="calcularTotal()">
+    <label>Observaciones</label>
+    <textarea class="obs-vianda"></textarea>
+  </div>
+</div>
+
+<div class="tarjeta vianda">
+  <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Albóndigas</button>
+  <div class="vianda-contenido">
+    <label>Guarnición</label>
+    <select class="subopcion">
+      <option>Arroz y vegetales</option>
+      <option>Puré de papa</option>
+    </select>
+    <label>Cantidad</label>
+    <input type="number" class="cantidad" min="0" value="0" onchange="calcularTotal()">
+    <label>Observaciones</label>
+    <textarea class="obs-vianda"></textarea>
+  </div>
+</div>
+
+<div class="tarjeta vianda">
+  <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Milanesa a la napolitana</button>
+  <div class="vianda-contenido">
     <label>Tipo</label>
     <select class="subopcion">
       <option>Carne</option>
       <option>Pollo</option>
       <option>Berenjena (Veggie)</option>
     </select>
-
     <label>Acompañamiento</label>
     <select class="subopcion">
       <option>Puré de papa</option>
       <option>Puré de calabaza</option>
       <option>Papas fritas</option>
     </select>
-
     <label>Cantidad</label>
-    <input
-      type="number"
-      class="cantidad"
-      min="0"
-      value="0"
-      onchange="calcularTotal()">
-
+    <input type="number" class="cantidad" min="0" value="0" onchange="calcularTotal()">
     <label>Observaciones</label>
     <textarea class="obs-vianda"></textarea>
   </div>
 </div>
 
-  <!-- PAPAS FRITAS -->
-  <div class="tarjeta vianda" data-precio="0">
-    <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Papas fritas</button>
-    <div class="vianda-contenido">
-      <label>Cantidad</label>
-      <input
-        type="number"
-        class="cantidad"
-        min="0"
-        value="0"
-        onchange="calcularTotal()">
+<h3 class="categoria">🐟 Pescado</h3>
 
-      <label>Observaciones</label>
-      <textarea class="obs-vianda"></textarea>
-    </div>
+<div class="tarjeta vianda">
+  <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Merluza a la mostaza al horno con verduras</button>
+  <div class="vianda-contenido">
+    <label>Cantidad</label>
+    <input type="number" class="cantidad" min="0" value="0" onchange="calcularTotal()">
+    <label>Observaciones</label>
+    <textarea class="obs-vianda"></textarea>
   </div>
+</div>
 
-<!-- PIZZA INDIVIDUAL -->
-<div class="tarjeta vianda" data-precio="0">
-  <button type="button" class="vianda-btn" onclick="toggleMenu(this)">
-    Pizza individual
-  </button>
+<div class="tarjeta vianda">
+  <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Filet de merluza al limón con puré mixto</button>
+  <div class="vianda-contenido">
+    <label>Cantidad</label>
+    <input type="number" class="cantidad" min="0" value="0" onchange="calcularTotal()">
+    <label>Observaciones</label>
+    <textarea class="obs-vianda"></textarea>
+  </div>
+</div>
 
+<h3 class="categoria">🥦 Veggie</h3>
+
+<div class="tarjeta vianda veggie">
+  <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Hamburguesas de lentejas con arroz y verduras</button>
+  <div class="vianda-contenido">
+    <label>Cantidad</label>
+    <input type="number" class="cantidad" min="0" value="0" onchange="calcularTotal()">
+    <label>Observaciones</label>
+    <textarea class="obs-vianda"></textarea>
+  </div>
+</div>
+
+<div class="tarjeta vianda veggie">
+  <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Guiso de lentejas</button>
+  <div class="vianda-contenido">
+    <label>Cantidad</label>
+    <input type="number" class="cantidad" min="0" value="0" onchange="calcularTotal()">
+    <label>Observaciones</label>
+    <textarea class="obs-vianda"></textarea>
+  </div>
+</div>
+
+<h3 class="categoria">🍕 Pizzas y Empanadas</h3>
+
+<div class="tarjeta vianda">
+  <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Pizza individual</button>
   <div class="vianda-contenido">
     <label>Sabor</label>
     <select class="subopcion">
@@ -506,49 +332,39 @@
       <option>Jamón y morrón</option>
       <option>Jamón</option>
     </select>
-
     <label>Cantidad</label>
-    <input
-      type="number"
-      class="cantidad"
-      min="0"
-      value="0"
-      onchange="calcularTotal()">
-
+    <input type="number" class="cantidad" min="0" value="0" onchange="calcularTotal()">
     <label>Observaciones</label>
     <textarea class="obs-vianda"></textarea>
   </div>
 </div>
 
-<!-- EMPANADAS -->
-<div class="tarjeta vianda empanadas" data-precio="0">
-  <button type="button" class="vianda-btn" onclick="toggleMenu(this)">
-    Empanadas
-  </button>
-
+<div class="tarjeta vianda empanadas">
+  <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Empanadas</button>
   <div class="vianda-contenido">
-
-    <label>Jamón y queso</label>
-    <input type="number" class="cantidad" data-sabor="Jamón y queso" min="0" value="0" onchange="calcularTotal()">
-
-    <label>Carne</label>
-    <input type="number" class="cantidad" data-sabor="Carne" min="0" value="0" onchange="calcularTotal()">
-
-    <label>Pollo</label>
-    <input type="number" class="cantidad" data-sabor="Pollo" min="0" value="0" onchange="calcularTotal()">
-
-    <label>Humita</label>
-    <input type="number" class="cantidad" data-sabor="Humita" min="0" value="0" onchange="calcularTotal()">
-
-    <label>Verdura</label>
-    <input type="number" class="cantidad" data-sabor="Verdura" min="0" value="0" onchange="calcularTotal()">
-
-    <label>Cebolla y queso</label>
-    <input type="number" class="cantidad" data-sabor="Cebolla y queso" min="0" value="0" onchange="calcularTotal()">
-
+    <label>Jamón y queso</label><input type="number" class="cantidad" data-sabor="Jamón y queso" min="0" value="0">
+    <label>Carne</label><input type="number" class="cantidad" data-sabor="Carne" min="0" value="0">
+    <label>Pollo</label><input type="number" class="cantidad" data-sabor="Pollo" min="0" value="0">
+    <label>Humita</label><input type="number" class="cantidad" data-sabor="Humita" min="0" value="0">
+    <label>Verdura</label><input type="number" class="cantidad" data-sabor="Verdura" min="0" value="0">
+    <label>Cebolla y queso</label><input type="number" class="cantidad" data-sabor="Cebolla y queso" min="0" value="0">
     <label>Observaciones</label>
     <textarea class="obs-vianda"></textarea>
   </div>
+</div>
+
+<h3 class="categoria">🥔 Acompañamientos</h3>
+
+<div class="tarjeta vianda">
+  <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Papas fritas</button>
+  <div class="vianda-contenido">
+    <label>Cantidad</label>
+    <input type="number" class="cantidad" min="0" value="0" onchange="calcularTotal()">
+    <label>Observaciones</label>
+    <textarea class="obs-vianda"></textarea>
+  </div>
+</div>
+
 </div>
 
 <div class="seccion">
@@ -676,6 +492,7 @@ window.open(
 
 </body>
 </html>
+
 
 
 
