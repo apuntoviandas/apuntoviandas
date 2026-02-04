@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>A PUNTO Viandas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    :root {
+      --fondo: #F7F3EE;
+      --texto: #2F3E3A;
+      --acento: #D8A48F;
+      --tarjeta: #FFFFFF;
+      --borde: #E6E1DA;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
+    }
+
+    header {
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    header img {
+      max-width: 260px;
+      margin-bottom: 16px;
+    }
+
+    header p {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    main {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .seccion {
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    .tarjeta {
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+
+    label {
+      font-size: 13px;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      border-radius: 8px;
+      border: 1px solid var(--borde);
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    textarea {
+      resize: none;
+      height: 70px;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      background: var(--acento);
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      opacity: 0.9;
+    }
+
+    .vacio {
+      text-align: center;
+      font-size: 14px;
+      opacity: 0.6;
+      padding: 30px 10px;
+    }
+
+/* ===== AJUSTES ESTÉTICOS MENÚ ===== */
+
+.vianda-btn {
+  width: 100%;
+  text-align: left;
+  font-size: 16px;          /* 🔹 agranda el nombre */
+  font-weight: 600;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #ffffff;
+  border: 1px solid var(--borde);
+  cursor: pointer;
+}
+
+.vianda-contenido {
+  display: none;
+  margin-top: 10px;
+}
+
+/* Labels más sutiles */
+.vianda label {
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+/* Inputs más compactos */
+.vianda select,
+.vianda input[type="number"] {
+  padding: 6px 8px;         /* 🔹 achica altura */
+  font-size: 14px;
+}
+
+/* Observaciones MÁS CHICO */
+.vianda textarea {
+  height: 45px;             /* 🔹 clave */
+  font-size: 13px;
+  padding: 6px 8px;
+  resize: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.vianda-contenido {
+  display: none;
+}
+
+.vianda-contenido.abierto {
+  display: block;
+}
+  </style>
+</head>
+
+<body>
+
+<header>
+  <!-- CUANDO QUIERAS, REEMPLAZÁ EL SRC POR TU LOGO -->
+  <img src="logo.png" alt="A Punto Viandas">
+  <p>Viandas caseras, listas cuando las necesitás</p>
+</header>
+
+<main>
+
+  <div class="seccion">
+  <h2>🍽️ Menú</h2>
+  <div id="menu">
+
+  <!-- POLLO AL HORNO -->
+  <div class="tarjeta vianda" data-precio="0">
+    <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Pollo al horno</button>
+    <div class="vianda-contenido">
+      <label>Guarnición</label>
+      <select class="subopcion">
+        <option>Papas y zanahorias</option>
+        <option>Puré de papa</option>
+        <option>Papas fritas</option>
+      </select>
+
+      <label>Cantidad</label>
+      <input
+        type="number"
+        class="cantidad"
+        min="0"
+        value="0"
+        onchange="calcularTotal()">
+ 
+      <label>Observaciones</label>
+      <textarea class="obs-vianda"></textarea>
+    </div>
+  </div>
+
+  <!-- POLLO GRILLADO -->
+  <div class="tarjeta vianda" data-precio="0">
+    <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Pollo grillado con arroz primavera</button>
+    <div class="vianda-contenido">
+      <label>Cantidad</label>
+      <input
+        type="number"
+        class="cantidad"
+        min="0"
+        value="0"
+        onchange="calcularTotal()">
+
+      <label>Observaciones</label>
+      <textarea class="obs-vianda"></textarea>
+    </div>
+  </div>
+
+  <!-- POLLO A LA PLANCHA -->
+  <div class="tarjeta vianda" data-precio="0">
+    <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Pollo a la plancha</button>
+    <div class="vianda-contenido">
+      <label>Guarnición</label>
+      <select class="subopcion">
+        <option>Puré de papa</option>
+        <option>Puré de calabaza</option>
+        <option>Papas fritas</option>
+      </select>
+
+      <label>Cantidad</label>
+      <input
+        type="number"
+        class="cantidad"
+        min="0"
+        value="0"
+        onchange="calcularTotal()">
+
+      <label>Observaciones</label>
+      <textarea class="obs-vianda"></textarea>
+    </div>
+  </div>
+
+  <!-- CARNE AL HORNO -->
+  <div class="tarjeta vianda" data-precio="0">
+    <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Carne al horno</button>
+    <div class="vianda-contenido">
+      <label>Guarnición</label>
+      <select class="subopcion">
+        <option>Puré de papa</option>
+        <option>Puré de calabaza</option>
+        <option>Papas fritas</option>
+      </select>
+
+      <label>Cantidad</label>
+      <input
+        type="number"
+        class="cantidad"
+        min="0"
+        value="0"
+        onchange="calcularTotal()">
+
+      <label>Observaciones</label>
+      <textarea class="obs-vianda"></textarea>
+    </div>
+  </div>
+
+  <!-- ALBÓNDIGAS -->
+  <div class="tarjeta vianda" data-precio="0">
+    <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Albóndigas</button>
+    <div class="vianda-contenido">
+      <label>Guarnición</label>
+      <select class="subopcion">
+        <option>Arroz y vegetales</option>
+        <option>Puré de papas</option>
+      </select>
+
+      <label>Cantidad</label>
+      <input
+        type="number"
+        class="cantidad"
+        min="0"
+        value="0"
+        onchange="calcularTotal()">
+
+      <label>Observaciones</label>
+      <textarea class="obs-vianda"></textarea>
+    </div>
+  </div>
+
+  <!-- MERLUZA MOSTAZA -->
+  <div class="tarjeta vianda" data-precio="0">
+    <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Merluza a la mostaza al horno con verduras</button>
+    <div class="vianda-contenido">
+      <label>Cantidad</label>
+      <input
+        type="number"
+        class="cantidad"
+        min="0"
+        value="0"
+        onchange="calcularTotal()">
+
+      <label>Observaciones</label>
+      <textarea class="obs-vianda"></textarea>
+    </div>
+  </div>
+
+  <!-- FILET LIMÓN -->
+  <div class="tarjeta vianda" data-precio="0">
+    <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Filet de merluza al limón con puré mixto</button>
+    <div class="vianda-contenido">
+      <label>Cantidad</label>
+      <input
+        type="number"
+        class="cantidad"
+        min="0"
+        value="0"
+        onchange="calcularTotal()">
+
+      <label>Observaciones</label>
+      <textarea class="obs-vianda"></textarea>
+    </div>
+  </div>
+
+  <!-- PASTEL -->
+  <div class="tarjeta vianda" data-precio="0">
+    <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Pastel de papa</button>
+    <div class="vianda-contenido">
+      <label>Cantidad</label>
+      <input
+        type="number"
+        class="cantidad"
+        min="0"
+        value="0"
+        onchange="calcularTotal()">
+
+      <label>Observaciones</label>
+      <textarea class="obs-vianda"></textarea>
+    </div>
+  </div>
+
+  <!-- TARTA INDIVIDUAL ZAPALLITOS -->
+  <div class="tarjeta vianda" data-precio="0">
+    <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Tarta individual de zapallitos y cebolla</button>
+    <div class="vianda-contenido">
+      <label>Cantidad</label>
+      <input
+        type="number"
+        class="cantidad"
+        min="0"
+        value="0"
+        onchange="calcularTotal()">
+
+      <label>Observaciones</label>
+      <textarea class="obs-vianda"></textarea>
+    </div>
+  </div>
+
+  <!-- TARTA INDIVIDUAL ESPINACA -->
+  <div class="tarjeta vianda veggie" data-precio="0">
+    <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Tarta individual de espinaca y choclo</button>
+    <div class="vianda-contenido">
+      <label>Ricotta</label>
+      <select class="subopcion">
+        <option>Con ricotta</option>
+        <option>Sin ricotta</option>
+      </select>
+
+      <label>Cantidad</label>
+      <input
+        type="number"
+        class="cantidad"
+        min="0"
+        value="0"
+        onchange="calcularTotal()">
+
+      <label>Observaciones</label>
+      <textarea class="obs-vianda"></textarea>
+    </div>
+  </div>
+
+  <!-- TARTA INDIVIDUAL JAMÓN Y QUESO -->
+  <div class="tarjeta vianda" data-precio="0">
+    <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Tarta individual de jamón y queso</button>
+    <div class="vianda-contenido">
+      <label>Cantidad</label>
+      <input
+        type="number"
+        class="cantidad"
+        min="0"
+        value="0"
+        onchange="calcularTotal()">
+
+      <label>Observaciones</label>
+      <textarea class="obs-vianda"></textarea>
+    </div>
+  </div>
+
+  <!-- TARTA INDIVIDUAL POLLO -->
+  <div class="tarjeta vianda" data-precio="0">
+    <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Tarta individual de pollo</button>
+    <div class="vianda-contenido">
+      <label>Cantidad</label>
+      <input
+        type="number"
+        class="cantidad"
+        min="0"
+        value="0"
+        onchange="calcularTotal()">
+
+      <label>Observaciones</label>
+      <textarea class="obs-vianda"></textarea>
+    </div>
+  </div>
+
+  <!-- LENTEJAS -->
+  <div class="tarjeta vianda veggie" data-precio="0">
+    <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Hamburguesas de lentejas con arroz y verduras</button>
+    <div class="vianda-contenido">
+      <label>Cantidad</label>
+      <input
+        type="number"
+        class="cantidad"
+        min="0"
+        value="0"
+        onchange="calcularTotal()">
+
+      <label>Observaciones</label>
+      <textarea class="obs-vianda"></textarea>
+    </div>
+  </div>
+
+  <div class="tarjeta vianda veggie" data-precio="0">
+    <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Guiso de lentejas</button>
+    <div class="vianda-contenido">
+      <label>Cantidad</label>
+      <input
+        type="number"
+        class="cantidad"
+        min="0"
+        value="0"
+        onchange="calcularTotal()">
+
+      <label>Observaciones</label>
+      <textarea class="obs-vianda"></textarea>
+    </div>
+  </div>
+
+  <!-- MILANESA -->
+  <div class="tarjeta vianda" data-precio="0">
+    <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Milanesa a la napolitana</button>
+    <div class="vianda-contenido">
+      <label>Tipo</label>
+      <select class="subopcion">
+        <option>Carne</option>
+        <option>Pollo</option>
+        <option>Berenjena (Veggie)</option>
+      </select>
+
+      <label>Cantidad</label>
+      <input
+        type="number"
+        class="cantidad"
+        min="0"
+        value="0"
+        onchange="calcularTotal()">
+
+      <label>Observaciones</label>
+      <textarea class="obs-vianda"></textarea>
+    </div>
+  </div>
+
+  <!-- PAPAS FRITAS -->
+  <div class="tarjeta vianda" data-precio="0">
+    <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Papas fritas</button>
+    <div class="vianda-contenido">
+      <label>Cantidad</label>
+      <input
+        type="number"
+        class="cantidad"
+        min="0"
+        value="0"
+        onchange="calcularTotal()">
+
+      <label>Observaciones</label>
+      <textarea class="obs-vianda"></textarea>
+    </div>
+  </div>
+
+<div class="seccion">
+  <div class="tarjeta">
+    <strong>Total del pedido:</strong>
+    <span id="total">$0</span>
+  </div>
+</div>
+
+</div>
+
+  <div class="seccion">
+    <h2>🧍 Datos del cliente</h2>
+
+    <div class="tarjeta">
+      <label>Nombre</label>
+      <input type="text" id="nombre">
+
+      <label>Dirección</label>
+      <input type="text" id="direccion">
+
+      <label>Observaciones</label>
+      <textarea id="obs"></textarea>
+
+      <label>Forma de pago</label>
+      <select id="pago">
+        <option value="Efectivo">Efectivo</option>
+        <option value="Transferencia">Transferencia</option>
+      </select>
+    </div>
+  </div>
+
+  <button class="btn" onclick="finalizarPedido()">
+    Finalizar pedido por WhatsApp
+  </button>
+
+</main>
+
+<script>
+const WHATSAPP_NUMBER = "5491136278233";
+
+function toggleMenu(btn) {
+  const contenido = btn.parentElement.querySelector(".vianda-contenido");
+  contenido.classList.toggle("abierto");
+}
+
+function calcularTotal() {
+  let total = 0;
+
+  document.querySelectorAll(".vianda").forEach(v => {
+    const precio = parseInt(v.dataset.precio || 0);
+    const cantidad = parseInt(v.querySelector(".cantidad").value || 0);
+    total += precio * cantidad;
+  });
+
+  document.getElementById("total").innerText = `$${total}`;
+}
+
+function finalizarPedido() {
+  let mensaje =
+    "Hola! \u{1F44B}\n" +
+    "Quiero hacer un pedido en A PUNTO VIANDAS.\n\n" +
+    "\u{1F37D} Pedido:\n";
+
+  let hayPedido = false;
+
+  document.querySelectorAll(".vianda").forEach(v => {
+    const nombre = v.querySelector(".vianda-btn").innerText;
+    const cantidad = v.querySelector(".cantidad").value;
+    const obs = v.querySelector(".obs-vianda").value;
+    const sub = v.querySelector(".subopcion");
+    const esVeggie = v.classList.contains("veggie");
+
+    if (cantidad > 0) {
+      hayPedido = true;
+      mensaje += `- ${cantidad}x ${nombre}`;
+      if (sub) mensaje += ` (${sub.value})`;
+      if (esVeggie) mensaje += " \u{1F331} Veggie";
+      mensaje += "\n";
+      if (obs) mensaje += `  \u{270F}\u{FE0F} Obs: ${obs}\n`;
+    }
+  });
+
+  if (!hayPedido) {
+    alert("Elegí al menos una vianda");
+    return;
+  }
+
+  const nombre = document.getElementById("nombre").value;
+  const direccion = document.getElementById("direccion").value;
+  const pago = document.getElementById("pago").value;
+
+  mensaje +=
+    "\n\u{1F4CD} Datos:\n" +
+    `Nombre: ${nombre}\n` +
+    `Dirección: ${direccion}\n` +
+    `Forma de pago: ${pago}\n\n` +
+    "¡Gracias! \u{1F331}";
+
+  const isMobile = /Android|iPhone|iPad/i.test(navigator.userAgent);
+
+const baseUrl = isMobile
+  ? "https://api.whatsapp.com/send"
+  : "https://web.whatsapp.com/send";
+
+window.open(
+  `${baseUrl}?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(mensaje)}`,
+  "_blank"
+);
+
+}
+
+</script>
+
+</body>
+</html>
