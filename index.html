@@ -440,28 +440,38 @@
   </div>
 
   <!-- MILANESA -->
-  <div class="tarjeta vianda" data-precio="0">
-    <button type="button" class="vianda-btn" onclick="toggleMenu(this)">Milanesa a la napolitana</button>
-    <div class="vianda-contenido">
-      <label>Tipo</label>
-      <select class="subopcion">
-        <option>Carne</option>
-        <option>Pollo</option>
-        <option>Berenjena (Veggie)</option>
-      </select>
+<div class="tarjeta vianda" data-precio="0">
+  <button type="button" class="vianda-btn" onclick="toggleMenu(this)">
+    Milanesa a la napolitana
+  </button>
+  <div class="vianda-contenido">
 
-      <label>Cantidad</label>
-      <input
-        type="number"
-        class="cantidad"
-        min="0"
-        value="0"
-        onchange="calcularTotal()">
+    <label>Tipo</label>
+    <select class="subopcion">
+      <option>Carne</option>
+      <option>Pollo</option>
+      <option>Berenjena (Veggie)</option>
+    </select>
 
-      <label>Observaciones</label>
-      <textarea class="obs-vianda"></textarea>
-    </div>
+    <label>Acompañamiento</label>
+    <select class="subopcion">
+      <option>Puré de papa</option>
+      <option>Puré de calabaza</option>
+      <option>Papas fritas</option>
+    </select>
+
+    <label>Cantidad</label>
+    <input
+      type="number"
+      class="cantidad"
+      min="0"
+      value="0"
+      onchange="calcularTotal()">
+
+    <label>Observaciones</label>
+    <textarea class="obs-vianda"></textarea>
   </div>
+</div>
 
   <!-- PAPAS FRITAS -->
   <div class="tarjeta vianda" data-precio="0">
@@ -666,3 +676,4 @@ window.open(
 
 </body>
 </html>
+
