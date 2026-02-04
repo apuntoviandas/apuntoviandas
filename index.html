@@ -480,6 +480,67 @@
     </div>
   </div>
 
+<!-- PIZZA INDIVIDUAL -->
+<div class="tarjeta vianda" data-precio="0">
+  <button type="button" class="vianda-btn" onclick="toggleMenu(this)">
+    Pizza individual
+  </button>
+
+  <div class="vianda-contenido">
+    <label>Sabor</label>
+    <select class="subopcion">
+      <option>Muzzarella</option>
+      <option>Napolitana</option>
+      <option>Fugazzetta</option>
+      <option>Con huevo</option>
+      <option>Jamón y morrón</option>
+      <option>Jamón</option>
+    </select>
+
+    <label>Cantidad</label>
+    <input
+      type="number"
+      class="cantidad"
+      min="0"
+      value="0"
+      onchange="calcularTotal()">
+
+    <label>Observaciones</label>
+    <textarea class="obs-vianda"></textarea>
+  </div>
+</div>
+
+<!-- EMPANADAS -->
+<div class="tarjeta vianda empanadas" data-precio="0">
+  <button type="button" class="vianda-btn" onclick="toggleMenu(this)">
+    Empanadas
+  </button>
+
+  <div class="vianda-contenido">
+
+    <label>Jamón y queso</label>
+    <input type="number" class="cantidad" data-sabor="Jamón y queso" min="0" value="0" onchange="calcularTotal()">
+
+    <label>Carne</label>
+    <input type="number" class="cantidad" data-sabor="Carne" min="0" value="0" onchange="calcularTotal()">
+
+    <label>Pollo</label>
+    <input type="number" class="cantidad" data-sabor="Pollo" min="0" value="0" onchange="calcularTotal()">
+
+    <label>Humita</label>
+    <input type="number" class="cantidad" data-sabor="Humita" min="0" value="0" onchange="calcularTotal()">
+
+    <label>Verdura</label>
+    <input type="number" class="cantidad" data-sabor="Verdura" min="0" value="0" onchange="calcularTotal()">
+
+    <label>Cebolla y queso</label>
+    <input type="number" class="cantidad" data-sabor="Cebolla y queso" min="0" value="0" onchange="calcularTotal()">
+
+    <label>Observaciones</label>
+    <textarea class="obs-vianda"></textarea>
+  </div>
+</div>
+
 <div class="seccion">
   <div class="tarjeta">
     <strong>Total del pedido:</strong>
@@ -546,7 +607,18 @@ function finalizarPedido() {
 
   document.querySelectorAll(".vianda").forEach(v => {
     const nombre = v.querySelector(".vianda-btn").innerText;
-    const cantidad = v.querySelector(".cantidad").value;
+    if (v.classList.contains("empanadas")) {
+  v.querySelectorAll(".cantidad").forEach(input => {
+    const cant = parseInt(input.value);
+    const sabor = input.dataset.sabor;
+    if (cant > 0) {
+      hayPedido = true;
+      mensaje += `- Empanadas ${sabor}: ${cant}\n`;
+    }
+  });
+  return;
+}
+
     const obs = v.querySelector(".obs-vianda").value;
     const sub = v.querySelector(".subopcion");
     const esVeggie = v.classList.contains("veggie");
